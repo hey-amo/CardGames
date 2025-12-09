@@ -12,4 +12,6 @@ public protocol CardCollection {
     mutating func add(_ card: CardType)
     mutating func remove(_ card: CardType) -> Bool
     func contains(_ card: CardType) -> Bool
+    mutating func removeAll() -> [CardType]
 }
+

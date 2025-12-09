@@ -45,6 +45,7 @@ public struct Deck: Equatable, Codable {
     public var count: Int {
         cards.count
     }
+    
 }
 
 // MARK: - ExpressibleByArrayLiteral

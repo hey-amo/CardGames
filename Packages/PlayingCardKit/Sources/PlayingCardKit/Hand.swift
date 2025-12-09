@@ -37,8 +37,11 @@ public struct Hand<CardType: Equatable & Codable>: CardCollection, Codable {
         return cards.contains(card)
     }
     
-    /*
-    public mutating func removeAll() {
-        self._cards.removeAll()
-    }*/
+    /// Removes all cards and returns them as an array.
+    @inlinable
+    public mutating func removeAll() -> [CardType] {
+        let removed = cards
+        cards.removeAll()
+        return removed
+    }
 }

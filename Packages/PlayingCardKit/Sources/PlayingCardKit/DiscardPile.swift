@@ -38,6 +38,11 @@ public struct DiscardPile<CardType: Equatable & Codable>: CardCollection, Codabl
     }
     
     @inlinable
+    public mutating func removeAll() -> [CardType] {
+        return self.empty()
+    }
+    
+    @inlinable
     public mutating func empty() -> [CardType] {
         let removed = cards
         cards.removeAll()

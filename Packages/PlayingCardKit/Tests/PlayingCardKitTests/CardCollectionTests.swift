@@ -12,7 +12,7 @@ import XCTest
 final class CardCollectionTests: XCTestCase {
    
     func testHandCanAddAndRemoveCards() {
-        var hand: Hand = Hand()
+        var hand: Hand<Card> = Hand()
         let aceOfSpades = Card(rank: .ace, suit: .spades)
         
         hand.add(aceOfSpades)
