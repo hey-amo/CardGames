@@ -1,4 +1,9 @@
 # CardGames
-A collection of traditional card games using Swift and Swift packages
 
-- Project archived for now
+A collection of 3 traditional card games using Swift and Swift packages
+
+## Games planned
+
+- Simple Blackjack
+- Simple War
+- Simple InBetween
