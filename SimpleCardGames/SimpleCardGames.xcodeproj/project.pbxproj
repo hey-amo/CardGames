@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		4DA6F41E2EE88067008CF27F /* PlayingCardKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4DA6F41D2EE88067008CF27F /* PlayingCardKit */; };
+		4DA6F42E2EE880CC008CF27F /* PlayingCardKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4DA6F42D2EE880CC008CF27F /* PlayingCardKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		4DA6F3FF2EE87F51008CF27F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -47,6 +52,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DA6F42E2EE880CC008CF27F /* PlayingCardKit in Frameworks */,
+				4DA6F41E2EE88067008CF27F /* PlayingCardKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +113,8 @@
 			);
 			name = SimpleCardGames;
 			packageProductDependencies = (
+				4DA6F41D2EE88067008CF27F /* PlayingCardKit */,
+				4DA6F42D2EE880CC008CF27F /* PlayingCardKit */,
 			);
 			productName = SimpleCardGames;
 			productReference = 4DA6F3ED2EE87F50008CF27F /* SimpleCardGames.app */;
@@ -186,6 +195,9 @@
 			);
 			mainGroup = 4DA6F3E42EE87F50008CF27F;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				4DA6F42C2EE880CC008CF27F /* XCLocalSwiftPackageReference "../Packages/PlayingCardKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 4DA6F3EE2EE87F50008CF27F /* Products */;
 			projectDirPath = "";
@@ -586,6 +598,24 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		4DA6F42C2EE880CC008CF27F /* XCLocalSwiftPackageReference "../Packages/PlayingCardKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../Packages/PlayingCardKit;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4DA6F41D2EE88067008CF27F /* PlayingCardKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PlayingCardKit;
+		};
+		4DA6F42D2EE880CC008CF27F /* PlayingCardKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PlayingCardKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4DA6F3E52EE87F50008CF27F /* Project object */;
 }
