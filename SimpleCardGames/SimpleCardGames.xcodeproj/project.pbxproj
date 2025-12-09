@@ -19,19 +19,11 @@
 			remoteGlobalIDString = 4DA6F3EC2EE87F50008CF27F;
 			remoteInfo = SimpleCardGames;
 		};
-		4DA6F4092EE87F51008CF27F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4DA6F3E52EE87F50008CF27F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4DA6F3EC2EE87F50008CF27F;
-			remoteInfo = SimpleCardGames;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		4DA6F3ED2EE87F50008CF27F /* SimpleCardGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleCardGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DA6F3FE2EE87F51008CF27F /* SimpleCardGamesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleCardGamesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4DA6F4082EE87F51008CF27F /* SimpleCardGamesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleCardGamesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -64,13 +56,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4DA6F4052EE87F51008CF27F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -88,7 +73,6 @@
 			children = (
 				4DA6F3ED2EE87F50008CF27F /* SimpleCardGames.app */,
 				4DA6F3FE2EE87F51008CF27F /* SimpleCardGamesTests.xctest */,
-				4DA6F4082EE87F51008CF27F /* SimpleCardGamesUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,26 +127,6 @@
 			productReference = 4DA6F3FE2EE87F51008CF27F /* SimpleCardGamesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		4DA6F4072EE87F51008CF27F /* SimpleCardGamesUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4DA6F4182EE87F51008CF27F /* Build configuration list for PBXNativeTarget "SimpleCardGamesUITests" */;
-			buildPhases = (
-				4DA6F4042EE87F51008CF27F /* Sources */,
-				4DA6F4052EE87F51008CF27F /* Frameworks */,
-				4DA6F4062EE87F51008CF27F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4DA6F40A2EE87F51008CF27F /* PBXTargetDependency */,
-			);
-			name = SimpleCardGamesUITests;
-			packageProductDependencies = (
-			);
-			productName = SimpleCardGamesUITests;
-			productReference = 4DA6F4082EE87F51008CF27F /* SimpleCardGamesUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -177,10 +141,6 @@
 						CreatedOnToolsVersion = 16.2;
 					};
 					4DA6F3FD2EE87F51008CF27F = {
-						CreatedOnToolsVersion = 16.2;
-						TestTargetID = 4DA6F3EC2EE87F50008CF27F;
-					};
-					4DA6F4072EE87F51008CF27F = {
 						CreatedOnToolsVersion = 16.2;
 						TestTargetID = 4DA6F3EC2EE87F50008CF27F;
 					};
@@ -205,7 +165,6 @@
 			targets = (
 				4DA6F3EC2EE87F50008CF27F /* SimpleCardGames */,
 				4DA6F3FD2EE87F51008CF27F /* SimpleCardGamesTests */,
-				4DA6F4072EE87F51008CF27F /* SimpleCardGamesUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -219,13 +178,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		4DA6F3FC2EE87F51008CF27F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4DA6F4062EE87F51008CF27F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -249,13 +201,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4DA6F4042EE87F51008CF27F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -263,11 +208,6 @@
 			isa = PBXTargetDependency;
 			target = 4DA6F3EC2EE87F50008CF27F /* SimpleCardGames */;
 			targetProxy = 4DA6F3FF2EE87F51008CF27F /* PBXContainerItemProxy */;
-		};
-		4DA6F40A2EE87F51008CF27F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4DA6F3EC2EE87F50008CF27F /* SimpleCardGames */;
-			targetProxy = 4DA6F4092EE87F51008CF27F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -514,50 +454,6 @@
 			};
 			name = Release;
 		};
-		4DA6F4192EE87F51008CF27F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = A48R25Y4D5;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MACOSX_DEPLOYMENT_TARGET = 14.6;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = uk.co.silentflute.SimpleCardGamesUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_TARGET_NAME = SimpleCardGames;
-				XROS_DEPLOYMENT_TARGET = 2.2;
-			};
-			name = Debug;
-		};
-		4DA6F41A2EE87F51008CF27F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = A48R25Y4D5;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MACOSX_DEPLOYMENT_TARGET = 14.6;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = uk.co.silentflute.SimpleCardGamesUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_TARGET_NAME = SimpleCardGames;
-				XROS_DEPLOYMENT_TARGET = 2.2;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -584,15 +480,6 @@
 			buildConfigurations = (
 				4DA6F4162EE87F51008CF27F /* Debug */,
 				4DA6F4172EE87F51008CF27F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4DA6F4182EE87F51008CF27F /* Build configuration list for PBXNativeTarget "SimpleCardGamesUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4DA6F4192EE87F51008CF27F /* Debug */,
-				4DA6F41A2EE87F51008CF27F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
