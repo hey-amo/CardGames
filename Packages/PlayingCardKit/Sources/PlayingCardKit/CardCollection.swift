@@ -10,19 +10,23 @@
 /// providing basic add/remove/contains operations.
 
 public protocol CardCollection {
-    var cards: [PlayingCard] { get set }
+    associatedtype CardType: Equatable
+    var cards: [CardType] { get set }
 
-    mutating func add(_ card: PlayingCard)
-    mutating func remove(_ card: PlayingCard) -> Bool
-    func contains(_ card: PlayingCard) -> Bool
+    mutating func add(_ card: CardType)
+    mutating func remove(_ card: CardType) -> Bool
+    func contains(_ card: CardType) -> Bool
 }
 
 public extension CardCollection {
-    mutating func add(_ card: PlayingCard) {
+    @inlinable
+    mutating func add(_ card: CardType) {
         cards.append(card)
     }
 
-    mutating func remove(_ card: PlayingCard) -> Bool {
+    @discardableResult
+    @inlinable
+    mutating func remove(_ card: CardType) -> Bool {
         if let index = cards.firstIndex(of: card) {
             cards.remove(at: index)
             return true
@@ -30,7 +34,8 @@ public extension CardCollection {
         return false
     }
 
-    func contains(_ card: PlayingCard) -> Bool {
+    @inlinable
+    func contains(_ card: CardType) -> Bool {
         cards.contains(card)
     }
 }

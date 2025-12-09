@@ -42,3 +42,16 @@ extension Rank: CustomStringConvertible {
         }
     }
 }
+
+public extension Rank {
+    /// Natural order in most card games (Ace high)
+    var defaultOrder: Int {
+        switch self {
+        case .jack: return 11
+        case .queen: return 12
+        case .king: return 13
+        case .ace: return 14
+        default: return rawValue
+        }
+    }
+}

@@ -10,17 +10,17 @@ import XCTest
 
 /// for purposes of testing
 private struct Hand: CardCollection {
-    public var cards: [PlayingCard] = []
+    public var cards: [Card] = []
 }
 /// for purposes of testing
 private struct DiscardPile: CardCollection {
-    public var cards: [PlayingCard] = []
+    public var cards: [Card] = []
 }
 
 final class CardCollectionTests: XCTestCase {
     func testHandCanAddAndRemoveCards() {
         var hand = Hand()
-        let aceOfSpades = PlayingCard(rank: .ace, suit: .spades)
+        let aceOfSpades = Card(rank: .ace, suit: .spades)
 
         hand.add(aceOfSpades)
         XCTAssertTrue(hand.contains(aceOfSpades))
@@ -32,7 +32,7 @@ final class CardCollectionTests: XCTestCase {
     
     func testDiscardPileBehavior() {
         var pile = DiscardPile()
-        let queenOfHearts = PlayingCard(rank: .queen, suit: .hearts)
+        let queenOfHearts = Card(rank: .queen, suit: .hearts)
 
         pile.add(queenOfHearts)
         XCTAssertEqual(pile.cards.count, 1)

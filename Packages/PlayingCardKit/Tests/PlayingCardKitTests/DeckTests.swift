@@ -10,7 +10,7 @@ import XCTest
 
 final class DeckTests: XCTestCase {
     func testCreate52CardDeck() {
-        var countByPlayingCard: [PlayingCard: Int] = [:]
+        var countByPlayingCard: [Card: Int] = [:]
         
         var deck = Deck.standard52CardDeck()
         while let playingCard = deck.deal() {
@@ -22,14 +22,14 @@ final class DeckTests: XCTestCase {
         
         for rank in Rank.allCases {
             for suit in Suit.allCases {
-                let playingCard = PlayingCard(rank: rank, suit: suit)
+                let playingCard = Card(rank: rank, suit: suit)
                 XCTAssertEqual(countByPlayingCard[playingCard], 1)
             }
         }
     }
     
     func testDeal() {
-        let playingCard = PlayingCard(rank: .ace, suit: .clubs)
+        let playingCard = Card(rank: .ace, suit: .clubs)
         var deck: Deck = [playingCard]
         
         XCTAssertEqual(deck.deal(), playingCard)
@@ -48,7 +48,7 @@ final class DeckTests: XCTestCase {
     }
     
     func testCountDealingDecreasesCountByOne() {
-        var deck = Deck([PlayingCard(rank: .ace, suit: .spades), PlayingCard(rank: .queen, suit: .hearts)])
+        var deck = Deck([Card(rank: .ace, suit: .spades), Card(rank: .queen, suit: .hearts)])
         
         XCTAssertEqual(deck.count, 2)
         XCTAssertNotNil(deck.deal())

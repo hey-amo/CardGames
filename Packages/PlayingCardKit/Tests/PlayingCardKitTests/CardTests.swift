@@ -10,11 +10,11 @@ import XCTest
 
 final class CardTests: XCTestCase {
     func testCardSingle() {
-        let card1 = PlayingCard(rank: .queen, suit: .diamonds)
-        let card2 = PlayingCard(rank: .king, suit: .diamonds)
-        let card3 = PlayingCard(rank: .ace, suit: .clubs)
-        let card4 = PlayingCard(rank: .queen, suit: .diamonds)
-        let card5 = PlayingCard(rank: .queen, suit: .clubs)
+        let card1 = Card(rank: .queen, suit: .diamonds)
+        let card2 = Card(rank: .king, suit: .diamonds)
+        let card3 = Card(rank: .ace, suit: .clubs)
+        let card4 = Card(rank: .queen, suit: .diamonds)
+        let card5 = Card(rank: .queen, suit: .clubs)
         
         XCTAssertGreaterThan(card2, card1)
         XCTAssertLessThan(card1, card2)

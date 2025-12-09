@@ -10,21 +10,21 @@ import Foundation
 /// Model for creating a deck of playing cards
 
 public struct Deck: Equatable, Codable {
-    fileprivate var cards: [PlayingCard]
+    fileprivate var cards: [Card]
 
     /// Returns a deck of 52 playing cards.
     public static func standard52CardDeck() -> Deck {
-        var cards: [PlayingCard] = []
+        var cards: [Card] = []
         for rank in Rank.allCases {
             for suit in Suit.allCases {
-                cards.append(PlayingCard(rank: rank, suit: suit))
+                cards.append(Card(rank: rank, suit: suit))
             }
         }
 
         return Deck(cards)
     }
 
-    public init(_ cards: [PlayingCard]) {
+    public init(_ cards: [Card]) {
         self.cards = cards
     }
     
@@ -35,7 +35,7 @@ public struct Deck: Equatable, Codable {
     /// Deals a card from the deck.
     ///
     /// Return last card in the deck.
-    public mutating func deal() -> PlayingCard? {
+    public mutating func deal() -> Card? {
         guard !cards.isEmpty else { return nil }
 
         return cards.removeLast()
@@ -50,7 +50,7 @@ public struct Deck: Equatable, Codable {
 // MARK: - ExpressibleByArrayLiteral
 
 extension Deck : ExpressibleByArrayLiteral {
-    public init(arrayLiteral elements: PlayingCard...) {
+    public init(arrayLiteral elements: Card...) {
         self.init(elements)
     }
 }
