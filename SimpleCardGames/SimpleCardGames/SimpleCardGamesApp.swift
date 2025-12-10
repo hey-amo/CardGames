@@ -21,6 +21,8 @@ struct SimpleCardGamesApp: App {
                             MainMenuView()
                         case .blackjackGame:
                             BlackjackGameView()
+                        case .settings:
+                            SettingsView()
                         }
                     }
             }
