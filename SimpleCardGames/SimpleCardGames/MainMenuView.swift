@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MainMenuView.swift
 //  SimpleCardGames
 //
 //  Created by Amarjit on 09/12/2025.
@@ -15,7 +15,7 @@ struct MainMenuView: View {
                 .fontWeight(.bold)
             
             Button("Blackjack") {
-                // do something
+                // launch Blackjack game
             }
         }
         .padding()
