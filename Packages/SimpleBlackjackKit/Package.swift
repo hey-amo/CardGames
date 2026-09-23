@@ -17,14 +17,24 @@ let package = Package(
             name: "SimpleBlackjackKit",
             targets: ["SimpleBlackjackKit"]),
     ],
+    dependencies: [
+        .package(path: "../PlayingCardKit")
+    ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "SimpleBlackjackKit"),
+            name: "SimpleBlackjackKit",
+            dependencies: [
+                .product(name: "PlayingCardKit", package: "PlayingCardKit")
+            ]
+        ),
         .testTarget(
             name: "SimpleBlackjackKitTests",
-            dependencies: ["SimpleBlackjackKit"]
+            dependencies: [
+                "SimpleBlackjackKit",
+                .product(name: "PlayingCardKit", package: "PlayingCardKit")
+            ]
         ),
     ]
 )

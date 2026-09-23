@@ -3,6 +3,8 @@
 // Dependency: PlayingCardKit package
 // Aims: SOLID principles, protocol programming, functional programming
 
+import PlayingCardKit
+
 public enum BlackjackGameState {
     case betting, dealing, playing, dealerTurn, gameOver
 }
