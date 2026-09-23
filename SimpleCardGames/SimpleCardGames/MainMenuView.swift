@@ -7,15 +7,34 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct GameCard {
     let id: Int
     let title: String
     let route: Route
 }
 
+struct GameCardView: View {
+    let title: String
+
+    var body: some View {
+        VStack {
+            Image(systemName: "play.rectangle.fill")
+                .font(.system(size: 28))
+                .foregroundColor(.blue)
+            Text(title)
+                .font(.system(size: 18, weight: .semibold))
+                .foregroundColor(.black)
+        }
+        .frame(maxWidth: .infinity)
+        .frame(height: 120)
+        .background(Color.white.opacity(0.7))
+        .cornerRadius(12)
+    }
+}
+
 struct NavigationHeaderView: View {
+    @Environment(GameNavigationStack.self) private var navigationStack
+
     var body: some View {
         // Navigation Title Bar
         HStack(spacing: 12) {
@@ -74,17 +93,16 @@ struct NavigationHeaderView: View {
 
         Divider()
             .background(Color.gray.opacity(0.2))
-        }
     }
 }
 
 struct MainMenuView: View {
-    @Environment(NavigationStack.self) var navigationStack
+    @Environment(GameNavigationStack.self) var navigationStack
     
     let games: [GameCard] = [
         GameCard(id: 1, title: "Blackjack", route: .blackjackGame),
-        GameCard(id: 2, title: "War", route: .warGame),
-        GameCard(id: 3, title: "No Thanks", route: .noThanksGame),
+        //GameCard(id: 2, title: "War", route: .warGame),
+        //GameCard(id: 3, title: "No Thanks", route: .noThanksGame),
     ]
     
     let columns = [
@@ -109,7 +127,7 @@ struct MainMenuView: View {
                 
                 // Header Section
                 VStack(spacing: 8) {
-                    Text("Simple Card Games")
+                    Text("7 Card Games")
                         .font(.system(size: 28, weight: .bold))
                         .foregroundColor(.black)
                     
@@ -142,5 +160,5 @@ struct MainMenuView: View {
 
 #Preview {
     MainMenuView()
-        .environment(NavigationStack())
+        .environment(GameNavigationStack())
 }

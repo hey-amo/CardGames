@@ -201,7 +201,7 @@ struct CardView: View {
     
     var body: some View {
         VStack {
-            Text("\(card.rank.symbol)")
+            Text(card.rank.description)
                 .font(.system(size: 20, weight: .bold))
             Text(card.suit.symbol)
                 .font(.system(size: 24))

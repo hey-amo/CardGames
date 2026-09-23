@@ -1,7 +1,7 @@
 import SwiftUI
 
 @Observable
-final class NavigationStack {
+final class GameNavigationStack {
     var path: [Route] = []
     
     func push(_ route: Route) {

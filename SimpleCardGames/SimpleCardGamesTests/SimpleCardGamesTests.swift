@@ -5,6 +5,7 @@
 //  Created by Amarjit on 09/12/2025.
 //
 
+@testable import SimpleCardGames
 import XCTest
 
 final class SimpleCardGamesTests: XCTestCase {
@@ -17,19 +18,16 @@ final class SimpleCardGamesTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
+    func testAudioSettingsPersistsToDevice() throws {
+        let source = AudioSettings(musicEnabled: false, soundEnabled: true, volume: 0.35)
+        let store = AudioSettingsStore(fileName: "test-audio-settings")
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
+        try store.save(source)
+        let loaded = try store.load()
+
+        XCTAssertFalse(loaded.musicEnabled)
+        XCTAssertTrue(loaded.soundEnabled)
+        XCTAssertEqual(loaded.volume, 0.35, accuracy: 0.0001)
     }
 
 }

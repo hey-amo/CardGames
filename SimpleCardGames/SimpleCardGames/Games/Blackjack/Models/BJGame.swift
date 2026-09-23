@@ -17,23 +17,24 @@ enum BlackjackResult {
 
 class BlackjackGameLogic {
     private var deck: Deck
-    private var playerHand: Hand
-    private var dealerHand: Hand
+    private var playerHand: Hand<Card>
+    private var dealerHand: Hand<Card>
     private var gameState: BlackjackGameState = .betting
     private var currentBet: Int = 0
     private var playerCoins: Int
 
     init(playerCoins: Int = 100) {
         self.playerCoins = playerCoins
-        self.deck = Deck()
-        self.playerHand = Hand()
-        self.dealerHand = Hand()
+        self.deck = Deck.standard52CardDeck()
+        self.playerHand = Hand<Card>()
+        self.dealerHand = Hand<Card>()
         shuffleDeck()
     }
 
     // MARK: - Game setup
     private func shuffleDeck() {
-        deck = Deck()
+        deck = Deck.standard52CardDeck()
+        deck.shuffle()
     }
 
     func placeBet(_ amount: Int) -> Bool {
@@ -45,14 +46,14 @@ class BlackjackGameLogic {
     }
 
     func dealInitialCards() {
-        playerHand = Hand()
-        dealerHand = Hand()
+        playerHand = Hand<Card>()
+        dealerHand = Hand<Card>()
         
         // Deal 2 cards to player and dealer alternately
-        playerHand.add(card: deck.draw()!)
-        dealerHand.add(card: deck.draw()!)
-        playerHand.add(card: deck.draw()!)
-        dealerHand.add(card: deck.draw()!)
+        playerHand.add(deck.deal()!)
+        dealerHand.add(deck.deal()!)
+        playerHand.add(deck.deal()!)
+        dealerHand.add(deck.deal()!)
         
         gameState = .playing
         
@@ -65,9 +66,9 @@ class BlackjackGameLogic {
     // MARK: - Player Actions
     func playerHit() -> Bool {
         guard gameState == .playing else { return false }
-        guard let card = deck.draw() else { return false }
+        guard let card = deck.deal() else { return false }
         
-        playerHand.add(card: card)
+        playerHand.add(card)
         
         let playerValue = calculateHandValue(playerHand)
         if playerValue > 21 {
@@ -90,8 +91,8 @@ class BlackjackGameLogic {
         
         // Dealer must hit on 16 or less, stand on 17 or more
         while dealerValue < 17 {
-            guard let card = deck.draw() else { break }
-            dealerHand.add(card: card)
+            guard let card = deck.deal() else { break }
+            dealerHand.add(card)
             dealerValue = calculateHandValue(dealerHand)
         }
         
@@ -136,7 +137,7 @@ class BlackjackGameLogic {
     }
     
     // MARK: - Hand Value Calculation
-    private func calculateHandValue(_ hand: Hand) -> Int {
+    private func calculateHandValue(_ hand: Hand<Card>) -> Int {
         var value = 0
         var aces = 0
         
@@ -168,8 +169,8 @@ class BlackjackGameLogic {
     }
     
     // MARK: - Getters
-    func getPlayerHand() -> Hand { playerHand }
-    func getDealerHand() -> Hand { dealerHand }
+    func getPlayerHand() -> Hand<Card> { playerHand }
+    func getDealerHand() -> Hand<Card> { dealerHand }
     func getGameState() -> BlackjackGameState { gameState }
     func getPlayerCoins() -> Int { playerCoins }
     func getCurrentBet() -> Int { currentBet }

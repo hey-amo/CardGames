@@ -9,17 +9,12 @@ import SwiftUI
 
 @main
 struct SimpleCardGamesApp: App {
-    @State private var navigationStack = NavigationStack()
+    @State private var navigationStack = GameNavigationStack()
     
     var body: some Scene {
         WindowGroup {
-            NavigationStack(path: $navigationStack.path) {
-                routeView(for: .mainMenu)
-                    .navigationDestination(for: Route.self) { route in
-                        routeView(for: route)
-                    }
-            }
-            .environment(navigationStack)
+            routeView(for: .mainMenu)
+                .environment(navigationStack)
         }
     }
 }

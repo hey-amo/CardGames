@@ -5,8 +5,6 @@ import PlayingCardKit
 enum Route: Hashable {
     case mainMenu
     case blackjackGame
-    case warGame
-    case noThanksGame
     case settings
 }
 
@@ -16,11 +14,7 @@ func routeView(for route: Route) -> some View {
     case .mainMenu:
         MainMenuView()
     case .blackjackGame:
-        BlackjackGameView()
-    case .warGame:
-        WarGameView()
-    case .noThanksGame:
-        Text("No Thanks Game (Coming Soon)")
+        BlackjackGameView()    
     case .settings:
         SettingsView()
     }

@@ -1,24 +1,51 @@
 import Foundation
 import SwiftUI
 
-class AppSettings: ObservableObject {
+final class AppSettings: ObservableObject {
     @Published var volume: Double = 0.7
     @Published var isMusicEnabled: Bool = true
+    @Published var isSoundEnabled: Bool = true
     @Published var isDarkModeEnabled: Bool = false
     @Published var isVibrationEnabled: Bool = true
-    
-    init() {
-        // Settings will be loaded here later
+
+    private let store: AudioSettingsStore
+
+    init(store: AudioSettingsStore = AudioSettingsStore()) {
+        self.store = store
+        loadSettings()
+    }
+
+    func loadSettings() {
+        do {
+            let saved = try store.load()
+            volume = saved.volume
+            isMusicEnabled = saved.musicEnabled
+            isSoundEnabled = saved.soundEnabled
+        } catch {
+            volume = 0.7
+            isMusicEnabled = true
+            isSoundEnabled = true
+        }
     }
 
     func saveSettings() {
-        // Settings will be saved here later
+        let settings = AudioSettings(
+            musicEnabled: isMusicEnabled,
+            soundEnabled: isSoundEnabled,
+            volume: volume
+        )
+
+        do {
+            try store.save(settings)
+        } catch {
+            print("Failed to save audio settings: \(error)")
+        }
     }
 }
 
 struct SettingsView: View {
     @StateObject private var settings = AppSettings()
-    @Environment(NavigationStack.self) var navigationStack
+    @Environment(GameNavigationStack.self) var navigationStack
     @State private var showPrivacySheet = false
     @State private var showTermsSheet = false
     
@@ -76,6 +103,9 @@ struct SettingsView: View {
                             
                             Slider(value: $settings.volume, in: 0...1)
                                 .tint(.blue)
+                                .onChange(of: settings.volume) { _ in
+                                    settings.saveSettings()
+                                }
                         }
                         .padding(16)
                         .background(Color.white.opacity(0.6))
@@ -91,11 +121,32 @@ struct SettingsView: View {
                             
                             Toggle("", isOn: $settings.isMusicEnabled)
                                 .tint(.blue)
+                                .onChange(of: settings.isMusicEnabled) { _ in
+                                    settings.saveSettings()
+                                }
                         }
                         .padding(16)
                         .background(Color.white.opacity(0.6))
                         .cornerRadius(8)
-                        
+
+                        // Sound Toggle
+                        HStack {
+                            Text("Sound")
+                                .font(.system(size: 18, weight: .semibold))
+                                .foregroundColor(.black)
+
+                            Spacer()
+
+                            Toggle("", isOn: $settings.isSoundEnabled)
+                                .tint(.blue)
+                                .onChange(of: settings.isSoundEnabled) { _ in
+                                    settings.saveSettings()
+                                }
+                        }
+                        .padding(16)
+                        .background(Color.white.opacity(0.6))
+                        .cornerRadius(8)
+
                         // Dark Mode Toggle
                         HStack {
                             Text("Dark Mode")
@@ -277,5 +328,5 @@ struct TermsOfServiceSheet: View {
 
 #Preview {
     SettingsView()
-        .environment(NavigationStack())
+        .environment(GameNavigationStack())
 }
