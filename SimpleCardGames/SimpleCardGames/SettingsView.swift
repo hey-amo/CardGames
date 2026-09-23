@@ -74,7 +74,7 @@ struct SettingsView: View {
                     
                     Spacer()
                     
-                    Text("SETTINGS")
+                    Text("Settings")
                         .font(.system(size: 24, weight: .bold))
                         .foregroundColor(.black)
                     
